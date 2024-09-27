@@ -49,7 +49,11 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
 
-    implementation (libs.dagger)
+    implementation(libs.adapterdelegates4.kotlin.dsl)
+    implementation(libs.adapterdelegates4.kotlin.dsl.layoutcontainer)
+    implementation(libs.adapterdelegates4.kotlin.dsl.viewbinding)
+
+    implementation(libs.dagger)
     kapt(libs.dagger.compiler)
 
     testImplementation(libs.junit)

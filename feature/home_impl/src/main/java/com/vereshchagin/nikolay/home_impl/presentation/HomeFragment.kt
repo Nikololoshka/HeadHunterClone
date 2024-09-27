@@ -8,9 +8,15 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import com.hannesdorfmann.adapterdelegates4.ListDelegationAdapter
 import com.vereshchagin.nikolay.core_ui.presentation.BaseFragment
 import com.vereshchagin.nikolay.home_impl.databinding.FragmentHomeBinding
 import com.vereshchagin.nikolay.home_impl.di.HomeComponent
+import com.vereshchagin.nikolay.home_impl.presentation.list.HomeListAdapter
+import com.vereshchagin.nikolay.home_impl.presentation.list.bar.searchBarDelegate
+import com.vereshchagin.nikolay.home_impl.presentation.list.recommends.recommendationDelegate
+import com.vereshchagin.nikolay.home_impl.presentation.list.vacancy.moreVacancyDelegate
+import com.vereshchagin.nikolay.home_impl.presentation.list.vacancy.vacancyDelegate
 import com.vereshchagin.nikolay.module_injector.appDependenciesProvider
 import com.vereshchagin.nikolay.module_injector.scopedComponent
 import kotlinx.coroutines.flow.collectLatest
@@ -39,9 +45,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val adapter = HomeListAdapter()
+        binding.list.adapter = adapter
+
         lifecycleScope.launch {
             viewModel.state.collectLatest { state ->
                 Log.d("HomeFragment", "onViewCreated: $state")
+                adapter.items = state.items
             }
         }
     }
