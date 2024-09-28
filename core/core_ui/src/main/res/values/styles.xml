@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TextTitle1">
+        <item name="android:fontFamily">@font/sf_pro_display_semibold</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="TextTitle2">
+        <item name="android:fontFamily">@font/sf_pro_display_semibold</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="TextTitle3">
+        <item name="android:fontFamily">@font/sf_pro_display_medium</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="TextTitle4">
+        <item name="android:fontFamily">@font/sf_pro_display_medium</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="TextDefault1">
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="TextButtonText1">
+        <item name="android:fontFamily">@font/sf_pro_display_semibold</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="TextButtonText2">
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="TextTabText">
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="TextNumber">
+        <item name="android:fontFamily">@font/sf_pro_display_regular</item>
+        <item name="android:textSize">7sp</item>
+    </style>
+
+    <style name="BottomNavigation" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="backgroundTint">@color/basic_black</item>
+        <item name="itemTextColor">@color/bottom_navigation_indicator</item>
+        <item name="itemIconTint">@color/bottom_navigation_indicator</item>
+    </style>
+
+</resources>

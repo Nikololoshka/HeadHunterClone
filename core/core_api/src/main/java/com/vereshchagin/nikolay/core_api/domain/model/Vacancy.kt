@@ -7,7 +7,7 @@ data class Vacancy(
     val address: VacancyAddress,
     val company: String,
     val experience: VacancyExperience,
-    val publishDate: String,
+    val publishedDate: String,
     val isFavorite: Boolean,
     val salary: VacancySalary,
     val schedules: List<String>,
@@ -29,5 +29,6 @@ data class VacancyExperience(
 )
 
 data class VacancySalary(
+    val short: String?,
     val full: String
 )

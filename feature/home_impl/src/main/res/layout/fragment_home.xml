@@ -1,7 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/list"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/default_screen_margin">
+
+            <com.google.android.material.textfield.TextInputEditText
+                style="@style/Base.SearchBar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/search_bar_hint"
+                android:layout_marginEnd="@dimen/default_screen_margin"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/vacancy_filter"
+                style="@style/Base.SearchBar.ActionButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/filter_action"
+                app:icon="@drawable/filter" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recommendations"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/default_screen_margin"
+            android:clipToPadding="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="10"
+            tools:listitem="@layout/recommendation_block"/>
+
+        <TextView
+            style="@style/TextTitle1"
+            android:textColor="@color/basic_white"
+            android:padding="@dimen/default_screen_margin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/vacancy_for_you" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:padding="@dimen/default_screen_margin"
+            android:clipToPadding="false"
+            android:id="@+id/vacancies"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/vacancy_block" />
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_margin="@dimen/default_screen_margin"
+            android:background="@drawable/default_card_background"
+            app:backgroundTint="@color/special_blue"
+            android:id="@+id/more_vacancies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

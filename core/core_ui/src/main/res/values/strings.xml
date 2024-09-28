@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="make_favorite_vacancy">Make favorite vacancy</string>
+    <string name="company_verification">Company verification</string>
+    <string name="respond">Откликнутся</string>
+</resources>

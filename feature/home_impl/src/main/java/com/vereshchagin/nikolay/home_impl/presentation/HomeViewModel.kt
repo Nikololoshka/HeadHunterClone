@@ -3,7 +3,7 @@ package com.vereshchagin.nikolay.home_impl.presentation
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import com.vereshchagin.nikolay.home_impl.domain.model.HomeItem
+import com.vereshchagin.nikolay.home_impl.domain.model.HomePageData
 import com.vereshchagin.nikolay.home_impl.domain.usecase.GetHomeDataUseCase
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
@@ -16,15 +16,22 @@ class HomeViewModel @AssistedInject constructor(
     private val useCase: GetHomeDataUseCase
 ) : ViewModel() {
 
+
     private val _state = MutableStateFlow(
-        HomeState(listOf(HomeItem.HomeSearchBar))
+        HomeState(
+            HomePageData(
+                recommendations = emptyList(),
+                vacancies = emptyList(),
+                moreVacancies = 0
+            )
+        )
     )
     val state = _state.asStateFlow()
 
     init {
         viewModelScope.launch {
-            val items = useCase()
-            _state.update { s -> s.copy(items = items) }
+            val data = useCase()
+            _state.update { s -> s.copy(data = data) }
         }
     }
 

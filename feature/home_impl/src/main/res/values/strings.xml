@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="recommendation_icon_description">Recommendation icon</string>
+    <string name="vacancy_for_you">Вакансии для вас</string>
+    <string name="filter_action">Filter action</string>
+    <string name="search_bar_hint">Должность, ключевые слова</string>
+
+    <string name="more_vacancies_first">Еще %1d вакансия</string>
+    <string name="more_vacancies_second">Еще %1d вакансии</string>
+    <string name="more_vacancies_third">Еще %1d вакансий</string>
+
+    <string name="looking_vacancy_first">Сейчас просматривает %1d человек</string>
+    <string name="looking_vacancy_second">Сейчас просматривают %1d человека</string>
+    <string name="looking_vacancy_third">Сейчас просматривают %1d человек</string>
+
+
+</resources>
