@@ -72,7 +72,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(
         binding.vacancies.adapter = vacancyAdapter
 
         val paddingBottom = resources.getDimensionPixelSize(R_core_ui.dimen.default_screen_margin)
-        binding.vacancies.addItemDecoration(MarginItemDecorator(bottom = paddingBottom))
+        binding.vacancies.addItemDecoration(MarginItemDecorator(bottom = paddingBottom * 2))
     }
 
     private fun onStateUpdated(state: HomeState) {

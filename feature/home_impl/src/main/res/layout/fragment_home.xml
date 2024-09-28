@@ -21,9 +21,9 @@
                 style="@style/Base.SearchBar"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/default_screen_margin"
                 android:layout_weight="1"
-                android:hint="@string/search_bar_hint"
-                android:layout_marginEnd="@dimen/default_screen_margin"/>
+                android:hint="@string/search_bar_hint" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/vacancy_filter"
@@ -37,39 +37,40 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recommendations"
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/default_screen_margin"
             android:clipToPadding="false"
+            android:orientation="horizontal"
+            android:padding="@dimen/default_screen_margin"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:itemCount="10"
-            tools:listitem="@layout/recommendation_block"/>
+            tools:listitem="@layout/recommendation_block" />
 
         <TextView
             style="@style/TextTitle1"
-            android:textColor="@color/basic_white"
-            android:padding="@dimen/default_screen_margin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/vacancy_for_you" />
+            android:padding="@dimen/default_screen_margin"
+            android:text="@string/vacancy_for_you"
+            android:textColor="@color/basic_white" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:padding="@dimen/default_screen_margin"
-            android:clipToPadding="false"
             android:id="@+id/vacancies"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:padding="@dimen/default_screen_margin"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/vacancy_block" />
 
         <com.google.android.material.button.MaterialButton
-            android:layout_margin="@dimen/default_screen_margin"
-            android:background="@drawable/default_card_background"
-            app:backgroundTint="@color/special_blue"
             android:id="@+id/more_vacancies"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/default_screen_margin"
+            android:background="@drawable/default_card_background"
+            android:textColor="@color/basic_white"
+            app:backgroundTint="@color/special_blue" />
 
     </LinearLayout>
 

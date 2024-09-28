@@ -46,10 +46,15 @@
         <item name="android:textSize">7sp</item>
     </style>
 
-    <style name="BottomNavigation" parent="Widget.MaterialComponents.BottomNavigationView">
+    <style name="Widget.BottomNavigation" parent="Widget.MaterialComponents.BottomNavigationView">
         <item name="backgroundTint">@color/basic_black</item>
         <item name="itemTextColor">@color/bottom_navigation_indicator</item>
         <item name="itemIconTint">@color/bottom_navigation_indicator</item>
+    </style>
+
+    <style name="Widget.TextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/basic_white</item>
+        <item name="android:textAppearance">@style/TextDefault1</item>
     </style>
 
 </resources>

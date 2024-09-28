@@ -15,19 +15,23 @@
         style="@style/TextDefault1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:textColor="@color/special_green"
+        app:layout_constraintBottom_toTopOf="@id/vacancy_title"
         app:layout_constraintEnd_toStartOf="@id/favorite"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Сейчас просматривает 1 человек" />
+        tools:text="Сейчас просматривает 1 человек"
+        tools:visibility="visible" />
 
     <ImageButton
         android:id="@+id/favorite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="?selectableItemBackgroundBorderless"
+        android:padding="8dp"
         android:contentDescription="@string/make_favorite_vacancy"
-        android:src="@drawable/add_favorite"
+        tools:src="@drawable/add_favorite"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,8 +40,9 @@
         style="@style/TextTitle3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:textColor="@color/basic_white"
+        app:layout_constraintBottom_toTopOf="@id/vacancy_salary"
         app:layout_constraintEnd_toStartOf="@id/favorite"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/current_viewers"
@@ -46,21 +51,25 @@
     <TextView
         android:id="@+id/vacancy_salary"
         style="@style/TextTitle2"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:textColor="@color/basic_white"
+        app:layout_constraintBottom_toTopOf="@id/vacancy_city"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/vacancy_title"
-        tools:text="1500-2900 Br" />
+        tools:text="1500-2900 Br"
+        tools:visibility="gone" />
 
     <TextView
         android:id="@+id/vacancy_city"
         style="@style/TextDefault1"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="4dp"
         android:textColor="@color/basic_white"
+        app:layout_constraintBottom_toTopOf="@id/company_name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/vacancy_salary"
         tools:text="Минск" />
@@ -68,12 +77,13 @@
     <TextView
         android:id="@+id/company_name"
         style="@style/TextDefault1"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
         android:drawablePadding="4dp"
         android:textColor="@color/basic_white"
         app:drawableEndCompat="@drawable/company_verification"
+        app:layout_constraintBottom_toTopOf="@id/experience"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/vacancy_city"
         tools:text="Мобирикс" />
@@ -81,12 +91,14 @@
     <TextView
         android:id="@+id/experience"
         style="@style/TextDefault1"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
         android:drawablePadding="4dp"
         android:textColor="@color/basic_white"
         app:drawableStartCompat="@drawable/experience"
+        app:layout_constraintBottom_toTopOf="@id/publish_date"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/company_name"
         tools:text="Опыт от 1 года до 3 лет" />
@@ -94,10 +106,12 @@
     <TextView
         android:id="@+id/publish_date"
         style="@style/TextDefault1"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginBottom="12dp"
         android:textColor="@color/basic_gray3"
+        app:layout_constraintBottom_toTopOf="@id/respond"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/experience"
         tools:text="Опубликовано 20 февраля" />
@@ -106,9 +120,10 @@
         android:id="@+id/respond"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
         android:text="@string/respond"
+        android:textColor="@color/basic_white"
         app:backgroundTint="@color/special_green"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/publish_date" />
