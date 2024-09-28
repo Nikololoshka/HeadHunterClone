@@ -37,8 +37,8 @@ android {
 }
 
 dependencies {
-    implementation(project(":core_api"))
-    implementation(project(":core_ui"))
+    implementation(project(":core:core_api"))
+    implementation(project(":core:core_ui"))
     implementation(project(":module_injector"))
 
     implementation(libs.androidx.core.ktx)

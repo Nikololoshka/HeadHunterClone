@@ -34,7 +34,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":core_api"))
+    implementation(project(":core:core_api"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

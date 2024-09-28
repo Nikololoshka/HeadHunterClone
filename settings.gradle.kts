@@ -21,9 +21,9 @@ dependencyResolutionManagement {
 
 rootProject.name = "hh_clone"
 include(":app")
-include(":core")
+include(":core:core_api")
+include(":core:core_impl")
+include(":core:core_ui")
 include(":feature:home_impl")
 include(":feature:favorite_impl")
 include(":module_injector")
-include(":core_api")
-include(":core_ui")
