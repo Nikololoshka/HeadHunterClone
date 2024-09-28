@@ -1,9 +1,9 @@
-package com.vereshchagin.nikolay.home_impl.presentation.list
+package com.vereshchagin.nikolay.search_impl.presentation.list
 
 import androidx.recyclerview.widget.DiffUtil
 import com.hannesdorfmann.adapterdelegates4.AsyncListDifferDelegationAdapter
 import com.vereshchagin.nikolay.core_api.domain.model.Recommendation
-import com.vereshchagin.nikolay.home_impl.presentation.list.delegates.recommendationDelegate
+import com.vereshchagin.nikolay.search_impl.presentation.list.delegates.recommendationDelegate
 
 class RecommendationListAdapter(
 

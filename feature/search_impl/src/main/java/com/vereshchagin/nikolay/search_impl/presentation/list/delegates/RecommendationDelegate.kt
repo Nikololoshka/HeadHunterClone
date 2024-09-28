@@ -1,11 +1,11 @@
-package com.vereshchagin.nikolay.home_impl.presentation.list.delegates
+package com.vereshchagin.nikolay.search_impl.presentation.list.delegates
 
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
 import com.vereshchagin.nikolay.core_api.domain.model.Recommendation
 import com.vereshchagin.nikolay.core_ui.presentation.gone
 import com.vereshchagin.nikolay.core_ui.presentation.show
-import com.vereshchagin.nikolay.home_impl.R
-import com.vereshchagin.nikolay.home_impl.databinding.RecommendationBlockBinding
+import com.vereshchagin.nikolay.search_impl.R
+import com.vereshchagin.nikolay.search_impl.databinding.RecommendationBlockBinding
 
 fun recommendationDelegate(
 

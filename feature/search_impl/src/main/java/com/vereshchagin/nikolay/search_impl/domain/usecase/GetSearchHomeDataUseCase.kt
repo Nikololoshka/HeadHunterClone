@@ -1,8 +1,8 @@
-package com.vereshchagin.nikolay.home_impl.domain.usecase
+package com.vereshchagin.nikolay.search_impl.domain.usecase
 
 
 import com.vereshchagin.nikolay.core_api.domain.repository.HeadHunterRemoteSource
-import com.vereshchagin.nikolay.home_impl.domain.model.SearchHomeData
+import com.vereshchagin.nikolay.search_impl.domain.model.SearchHomeData
 import javax.inject.Inject
 
 class GetSearchHomeDataUseCase @Inject constructor(

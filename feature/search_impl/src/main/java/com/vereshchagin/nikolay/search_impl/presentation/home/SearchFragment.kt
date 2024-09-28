@@ -1,21 +1,25 @@
-package com.vereshchagin.nikolay.home_impl.presentation
+package com.vereshchagin.nikolay.search_impl.presentation.home
 
 import android.content.Context
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
+import androidx.core.net.toUri
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.NavDeepLinkRequest
+import androidx.navigation.fragment.findNavController
 import com.vereshchagin.nikolay.core_ui.presentation.BaseFragment
 import com.vereshchagin.nikolay.core_ui.presentation.MarginItemDecorator
 import com.vereshchagin.nikolay.core_ui.presentation.WordDeclension
 import com.vereshchagin.nikolay.core_ui.presentation.visible
-import com.vereshchagin.nikolay.home_impl.R
-import com.vereshchagin.nikolay.home_impl.databinding.FragmentSearchBinding
-import com.vereshchagin.nikolay.home_impl.di.SearchComponent
-import com.vereshchagin.nikolay.home_impl.presentation.list.RecommendationListAdapter
-import com.vereshchagin.nikolay.home_impl.presentation.list.VacanciesListAdapter
+import com.vereshchagin.nikolay.search_impl.R
+import com.vereshchagin.nikolay.search_impl.databinding.FragmentSearchBinding
+import com.vereshchagin.nikolay.search_impl.di.SearchComponent
+import com.vereshchagin.nikolay.search_impl.presentation.list.RecommendationListAdapter
+import com.vereshchagin.nikolay.search_impl.presentation.list.VacanciesListAdapter
 import com.vereshchagin.nikolay.module_injector.appDependenciesProvider
 import com.vereshchagin.nikolay.module_injector.scopedComponent
 import kotlinx.coroutines.flow.collectLatest
@@ -51,6 +55,12 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(
 
         setupRecommendationList()
         setupVacanciesList()
+        binding.moreVacancies.setOnClickListener {
+            val request = NavDeepLinkRequest.Builder
+                .fromUri("android-app://com.vereshchagin.nikolay.hh_clone/search_vacancies_nav".toUri())
+                .build()
+            findNavController().navigate(request)
+        }
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/search_nav"
-        android:name="com.vereshchagin.nikolay.home_impl.presentation.SearchFragment"
+        android:name="com.vereshchagin.nikolay.search_impl.presentation.home.SearchFragment"
         android:label="HomeFragment"
         tools:layout="@layout/fragment_search" />
 
@@ -27,5 +27,13 @@
         android:name="com.vereshchagin.nikolay.message_impl.presentation.MessageFragment"
         android:label="MessageFragment"
         tools:layout="@layout/fragment_message" />
+
+    <fragment
+        android:id="@+id/search_vacancies_nav"
+        android:name="com.vereshchagin.nikolay.search_impl.presentation.vacancies.SearchVacanciesFragment"
+        android:label="SearchVacanciesFragment"
+        tools:layout="@layout/fragment_search_vacancies">
+        <deepLink app:uri="android-app://com.vereshchagin.nikolay.hh_clone/search_vacancies_nav" />
+    </fragment>
 
 </navigation>

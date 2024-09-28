@@ -1,10 +1,10 @@
-package com.vereshchagin.nikolay.home_impl.presentation
+package com.vereshchagin.nikolay.search_impl.presentation.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import com.vereshchagin.nikolay.home_impl.domain.model.SearchHomeData
-import com.vereshchagin.nikolay.home_impl.domain.usecase.GetSearchHomeDataUseCase
+import com.vereshchagin.nikolay.search_impl.domain.model.SearchHomeData
+import com.vereshchagin.nikolay.search_impl.domain.usecase.GetSearchHomeDataUseCase
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import kotlinx.coroutines.flow.MutableStateFlow

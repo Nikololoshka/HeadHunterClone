@@ -1,6 +1,6 @@
-package com.vereshchagin.nikolay.home_impl.di
+package com.vereshchagin.nikolay.search_impl.di
 
-import com.vereshchagin.nikolay.home_impl.presentation.SearchFragment
+import com.vereshchagin.nikolay.search_impl.presentation.home.SearchFragment
 import com.vereshchagin.nikolay.module_injector.AppDependenciesProvider
 import dagger.Component
 

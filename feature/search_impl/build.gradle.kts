@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.vereshchagin.nikolay.home_impl"
+    namespace = "com.vereshchagin.nikolay.search_impl"
     compileSdk = 34
 
     defaultConfig {
@@ -44,6 +44,9 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
+
+    implementation(libs.androidx.navigation.fragment)
+    implementation(libs.androidx.navigation.ui)
 
     implementation(libs.androidx.fragment.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)

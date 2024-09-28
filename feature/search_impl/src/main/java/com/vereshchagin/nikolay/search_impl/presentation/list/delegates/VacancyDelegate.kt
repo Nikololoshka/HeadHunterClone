@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.home_impl.presentation.list.delegates
+package com.vereshchagin.nikolay.search_impl.presentation.list.delegates
 
 import android.icu.text.SimpleDateFormat
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
@@ -7,8 +7,7 @@ import com.vereshchagin.nikolay.core_ui.databinding.VacancyBlockBinding
 import com.vereshchagin.nikolay.core_ui.presentation.WordDeclension
 import com.vereshchagin.nikolay.core_ui.presentation.gone
 import com.vereshchagin.nikolay.core_ui.presentation.show
-import com.vereshchagin.nikolay.core_ui.presentation.visible
-import com.vereshchagin.nikolay.home_impl.R
+import com.vereshchagin.nikolay.search_impl.R
 import java.util.Locale
 import com.vereshchagin.nikolay.core_ui.R as R_core_ui
 

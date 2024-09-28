@@ -12,6 +12,8 @@
     <string name="looking_vacancy_first">Сейчас просматривает %1d человек</string>
     <string name="looking_vacancy_second">Сейчас просматривают %1d человека</string>
     <string name="looking_vacancy_third">Сейчас просматривают %1d человек</string>
+    <string name="search_bar_vacancies_hint">Должность по подходящим вакансиям</string>
+    <string name="back_action">Back action</string>
 
 
 </resources>
