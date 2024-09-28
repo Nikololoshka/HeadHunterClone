@@ -33,7 +33,7 @@ fun vacancyDelegate(
                 currentViewers.gone()
             }
 
-            binding.favorite.setBackgroundResource(
+            binding.favorite.setImageResource(
                 if (item.isFavorite) {
                     R_core_ui.drawable.remove_favorite
                 } else {
