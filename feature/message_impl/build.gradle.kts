@@ -1,21 +1,17 @@
 plugins {
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    id("kotlin-kapt")
 }
 
 android {
-    namespace = "com.vereshchagin.nikolay.hh_clone"
+    namespace = "com.vereshchagin.nikolay.message_impl"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.vereshchagin.nikolay.hh_clone"
         minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -34,34 +30,17 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-
     buildFeatures {
         viewBinding = true
     }
 }
 
 dependencies {
-    implementation(project(":core:core_api"))
-    implementation(project(":core:core_impl"))
     implementation(project(":core:core_ui"))
-    implementation(project(":feature:home_impl"))
-    implementation(project(":feature:favorite_impl"))
-    implementation(project(":feature:feedback_impl"))
-    implementation(project(":feature:message_impl"))
-    implementation(project(":feature:profile_impl"))
-    implementation(project(":module_injector"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
-    implementation(libs.androidx.activity)
-    implementation(libs.androidx.constraintlayout)
-
-    implementation(libs.androidx.navigation.fragment)
-    implementation(libs.androidx.navigation.ui)
-
-    implementation (libs.dagger)
-    kapt(libs.dagger.compiler)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

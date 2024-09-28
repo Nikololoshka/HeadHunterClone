@@ -16,7 +16,10 @@
             <option value="$PROJECT_DIR$/core/core_ui" />
             <option value="$PROJECT_DIR$/feature" />
             <option value="$PROJECT_DIR$/feature/favorite_impl" />
+            <option value="$PROJECT_DIR$/feature/feedback_impl" />
             <option value="$PROJECT_DIR$/feature/home_impl" />
+            <option value="$PROJECT_DIR$/feature/message_impl" />
+            <option value="$PROJECT_DIR$/feature/profile_impl" />
             <option value="$PROJECT_DIR$/module_injector" />
           </set>
         </option>
