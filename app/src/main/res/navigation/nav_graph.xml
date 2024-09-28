@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/search_nav"
-        android:name="com.vereshchagin.nikolay.home_impl.presentation.HomeFragment"
+        android:name="com.vereshchagin.nikolay.home_impl.presentation.SearchFragment"
         android:label="HomeFragment"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_search" />
 
     <fragment
         android:id="@+id/profile_nav"

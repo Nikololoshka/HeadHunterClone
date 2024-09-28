@@ -3,8 +3,8 @@ package com.vereshchagin.nikolay.home_impl.presentation
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import com.vereshchagin.nikolay.home_impl.domain.model.HomePageData
-import com.vereshchagin.nikolay.home_impl.domain.usecase.GetHomeDataUseCase
+import com.vereshchagin.nikolay.home_impl.domain.model.SearchHomeData
+import com.vereshchagin.nikolay.home_impl.domain.usecase.GetSearchHomeDataUseCase
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -12,14 +12,14 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
-class HomeViewModel @AssistedInject constructor(
-    private val useCase: GetHomeDataUseCase
+class SearchViewModel @AssistedInject constructor(
+    private val useCase: GetSearchHomeDataUseCase
 ) : ViewModel() {
 
 
     private val _state = MutableStateFlow(
-        HomeState(
-            HomePageData(
+        SearchState(
+            SearchHomeData(
                 recommendations = emptyList(),
                 vacancies = emptyList(),
                 moreVacancies = 0
@@ -37,7 +37,7 @@ class HomeViewModel @AssistedInject constructor(
 
     @AssistedFactory
     interface HomeViewModelFactory {
-        fun create(): HomeViewModel
+        fun create(): SearchViewModel
     }
 
     companion object {

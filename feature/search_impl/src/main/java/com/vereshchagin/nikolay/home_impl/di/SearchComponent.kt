@@ -1,6 +1,6 @@
 package com.vereshchagin.nikolay.home_impl.di
 
-import com.vereshchagin.nikolay.home_impl.presentation.HomeFragment
+import com.vereshchagin.nikolay.home_impl.presentation.SearchFragment
 import com.vereshchagin.nikolay.module_injector.AppDependenciesProvider
 import dagger.Component
 
@@ -9,22 +9,22 @@ import dagger.Component
         AppDependenciesProvider::class
     ]
 )
-interface HomeComponent {
+interface SearchComponent {
 
-    fun inject(fragment: HomeFragment)
+    fun inject(fragment: SearchFragment)
 
     @Component.Factory
     interface Factory {
         fun create(
             appDependenciesProvider: AppDependenciesProvider
-        ): HomeComponent
+        ): SearchComponent
     }
 
     companion object {
         fun create(
             appDependenciesProvider: AppDependenciesProvider
-        ): HomeComponent {
-            return DaggerHomeComponent
+        ): SearchComponent {
+            return DaggerSearchComponent
                 .factory()
                 .create(appDependenciesProvider)
         }

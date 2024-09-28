@@ -44,7 +44,7 @@ dependencies {
     implementation(project(":core:core_api"))
     implementation(project(":core:core_impl"))
     implementation(project(":core:core_ui"))
-    implementation(project(":feature:home_impl"))
+    implementation(project(":feature:search_impl"))
     implementation(project(":feature:favorite_impl"))
     implementation(project(":feature:feedback_impl"))
     implementation(project(":feature:message_impl"))

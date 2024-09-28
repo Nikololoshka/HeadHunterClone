@@ -7,14 +7,13 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import com.vereshchagin.nikolay.core_ui.R as R_core_ui
 import com.vereshchagin.nikolay.core_ui.presentation.BaseFragment
 import com.vereshchagin.nikolay.core_ui.presentation.MarginItemDecorator
 import com.vereshchagin.nikolay.core_ui.presentation.WordDeclension
 import com.vereshchagin.nikolay.core_ui.presentation.visible
 import com.vereshchagin.nikolay.home_impl.R
-import com.vereshchagin.nikolay.home_impl.databinding.FragmentHomeBinding
-import com.vereshchagin.nikolay.home_impl.di.HomeComponent
+import com.vereshchagin.nikolay.home_impl.databinding.FragmentSearchBinding
+import com.vereshchagin.nikolay.home_impl.di.SearchComponent
 import com.vereshchagin.nikolay.home_impl.presentation.list.RecommendationListAdapter
 import com.vereshchagin.nikolay.home_impl.presentation.list.VacanciesListAdapter
 import com.vereshchagin.nikolay.module_injector.appDependenciesProvider
@@ -22,28 +21,29 @@ import com.vereshchagin.nikolay.module_injector.scopedComponent
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import com.vereshchagin.nikolay.core_ui.R as R_core_ui
 
-class HomeFragment : BaseFragment<FragmentHomeBinding>(
-    FragmentHomeBinding::inflate
+class SearchFragment : BaseFragment<FragmentSearchBinding>(
+    FragmentSearchBinding::inflate
 ) {
 
     @Inject
-    lateinit var viewModelFactory: HomeViewModel.HomeViewModelFactory
-    private val viewModel by viewModels<HomeViewModel> {
-        HomeViewModel.provideFactory(viewModelFactory)
+    lateinit var viewModelFactory: SearchViewModel.HomeViewModelFactory
+    private val viewModel by viewModels<SearchViewModel> {
+        SearchViewModel.provideFactory(viewModelFactory)
     }
 
     private lateinit var recommendationAdapter: RecommendationListAdapter
     private lateinit var vacancyAdapter: VacanciesListAdapter
 
 
-    private val homeComponent by scopedComponent {
-        HomeComponent.create(appDependenciesProvider())
+    private val searchComponent by scopedComponent {
+        SearchComponent.create(appDependenciesProvider())
     }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        homeComponent.inject(this)
+        searchComponent.inject(this)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -75,7 +75,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(
         binding.vacancies.addItemDecoration(MarginItemDecorator(bottom = paddingBottom * 2))
     }
 
-    private fun onStateUpdated(state: HomeState) {
+    private fun onStateUpdated(state: SearchState) {
         recommendationAdapter.items = state.data.recommendations
         binding.recommendations.visible(visible = state.data.recommendations.isNotEmpty())
 
