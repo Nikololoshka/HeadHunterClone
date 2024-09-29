@@ -6,12 +6,17 @@ import com.vereshchagin.nikolay.core_api.domain.model.Recommendation
 import com.vereshchagin.nikolay.search_impl.presentation.list.delegates.recommendationDelegate
 
 class RecommendationListAdapter(
-
+    private val onItemClicked: (item: Recommendation) -> Unit
 ): AsyncListDifferDelegationAdapter<Recommendation>(
     RecommendationDiffUtil
 ) {
     init {
-        delegatesManager.addDelegate(recommendationDelegate())
+        delegatesManager.addDelegate(recommendationDelegate(::onRecommendationClicked))
+    }
+
+    private fun onRecommendationClicked(position: Int) {
+        val item = items[position]
+        onItemClicked(item)
     }
 
     companion object {

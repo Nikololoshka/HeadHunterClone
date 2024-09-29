@@ -1,7 +1,10 @@
 package com.vereshchagin.nikolay.search_impl.presentation.home
 
 import android.content.Context
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.core.net.toUri
 import androidx.fragment.app.viewModels
@@ -10,6 +13,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.fragment.findNavController
+import com.vereshchagin.nikolay.core_api.domain.model.Recommendation
 import com.vereshchagin.nikolay.core_ui.presentation.fragment.BaseFragment
 import com.vereshchagin.nikolay.core_ui.presentation.list.MarginItemDecorator
 import com.vereshchagin.nikolay.core_ui.presentation.utils.getPluralsString
@@ -69,11 +73,16 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(
     }
 
     private fun setupRecommendationList() {
-        recommendationAdapter = RecommendationListAdapter()
+        recommendationAdapter = RecommendationListAdapter(::onRecommendationClicked)
         binding.recommendations.adapter = recommendationAdapter
 
         val paddingEnd = resources.getDimensionPixelSize(R_core_ui.dimen.default_screen_margin)
         binding.recommendations.addItemDecoration(MarginItemDecorator(end = paddingEnd))
+    }
+
+    private fun onRecommendationClicked(item: Recommendation) {
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(item.link))
+        startActivity(intent)
     }
 
     private fun setupVacanciesList() {

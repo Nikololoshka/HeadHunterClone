@@ -8,12 +8,14 @@ import com.vereshchagin.nikolay.search_impl.R
 import com.vereshchagin.nikolay.search_impl.databinding.RecommendationBlockBinding
 
 fun recommendationDelegate(
-
+     onItemClicked: (position: Int) -> Unit
 ) = adapterDelegateViewBinding<Recommendation, Recommendation, RecommendationBlockBinding>(
     viewBinding = { inflater, parent ->
         RecommendationBlockBinding.inflate(inflater, parent, false)
     }
 ) {
+    itemView.setOnClickListener { onItemClicked(bindingAdapterPosition) }
+
     bind {
         if (item.id != null) {
             binding.icon.show()
