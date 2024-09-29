@@ -8,7 +8,7 @@ import com.vereshchagin.nikolay.search_impl.R
 import com.vereshchagin.nikolay.search_impl.databinding.RecommendationBlockBinding
 
 fun recommendationDelegate(
-     onItemClicked: (position: Int) -> Unit
+    onItemClicked: (position: Int) -> Unit
 ) = adapterDelegateViewBinding<Recommendation, Recommendation, RecommendationBlockBinding>(
     viewBinding = { inflater, parent ->
         RecommendationBlockBinding.inflate(inflater, parent, false)
@@ -17,16 +17,15 @@ fun recommendationDelegate(
     itemView.setOnClickListener { onItemClicked(bindingAdapterPosition) }
 
     bind {
-        if (item.id != null) {
+        val recommendationIcon = when (item.id) {
+            "near_vacancies" -> R.drawable.rec_near_vacancies
+            "level_up_resume" -> R.drawable.rec_level_up_resume
+            "temporary_job" -> R.drawable.rec_temporary_job
+            else -> null
+        }
+        if (recommendationIcon != null) {
+            binding.icon.setImageResource(recommendationIcon)
             binding.icon.show()
-            binding.icon.setImageResource(
-                when (item.id) {
-                    "near_vacancies" -> R.drawable.rec_near_vacancies
-                    "level_up_resume" -> R.drawable.rec_level_up_resume
-                    "temporary_job" -> R.drawable.rec_temporary_job
-                    else -> 0
-                }
-            )
         } else {
             binding.icon.gone()
         }
