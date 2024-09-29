@@ -4,7 +4,7 @@ import android.icu.text.SimpleDateFormat
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
 import com.vereshchagin.nikolay.core_api.domain.model.Vacancy
 import com.vereshchagin.nikolay.core_ui.databinding.VacancyBlockBinding
-import com.vereshchagin.nikolay.core_ui.presentation.WordDeclension
+import com.vereshchagin.nikolay.core_ui.presentation.getPluralsString
 import com.vereshchagin.nikolay.core_ui.presentation.gone
 import com.vereshchagin.nikolay.core_ui.presentation.show
 import com.vereshchagin.nikolay.search_impl.R
@@ -21,12 +21,7 @@ fun vacancyDelegate(
     bind {
         with(binding) {
             if (item.lookingNumber > 0) {
-                val lookingNumberPattern = when (WordDeclension.normalizeType(item.lookingNumber)) {
-                    WordDeclension.DeclensionType.First -> R.string.looking_vacancy_first
-                    WordDeclension.DeclensionType.Second -> R.string.looking_vacancy_second
-                    WordDeclension.DeclensionType.Third -> R.string.looking_vacancy_third
-                }
-                currentViewers.text = getString(lookingNumberPattern, item.lookingNumber)
+                currentViewers.text = getPluralsString(R.plurals.looking_vacancy, item.lookingNumber)
                 currentViewers.show()
             } else {
                 currentViewers.gone()

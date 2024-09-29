@@ -1,7 +1,6 @@
 package com.vereshchagin.nikolay.search_impl.presentation.home
 
 import android.content.Context
-import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.core.net.toUri
@@ -13,7 +12,7 @@ import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.fragment.findNavController
 import com.vereshchagin.nikolay.core_ui.presentation.BaseFragment
 import com.vereshchagin.nikolay.core_ui.presentation.MarginItemDecorator
-import com.vereshchagin.nikolay.core_ui.presentation.WordDeclension
+import com.vereshchagin.nikolay.core_ui.presentation.getPluralsString
 import com.vereshchagin.nikolay.core_ui.presentation.visible
 import com.vereshchagin.nikolay.search_impl.R
 import com.vereshchagin.nikolay.search_impl.databinding.FragmentSearchBinding
@@ -92,11 +91,6 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(
         vacancyAdapter.items = state.data.vacancies
 
         val vacanciesCount = state.data.moreVacancies
-        val moreVacanciesPattern = when (WordDeclension.normalizeType(vacanciesCount)) {
-            WordDeclension.DeclensionType.First -> R.string.more_vacancies_first
-            WordDeclension.DeclensionType.Second -> R.string.more_vacancies_second
-            WordDeclension.DeclensionType.Third -> R.string.more_vacancies_third
-        }
-        binding.moreVacancies.text = getString(moreVacanciesPattern, state.data.moreVacancies)
+        binding.moreVacancies.text = getPluralsString(R.plurals.more_vacancies, vacanciesCount)
     }
 }

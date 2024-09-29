@@ -5,15 +5,21 @@
     <string name="filter_action">Filter action</string>
     <string name="search_bar_hint">Должность, ключевые слова</string>
 
-    <string name="more_vacancies_first">Еще %1d вакансия</string>
-    <string name="more_vacancies_second">Еще %1d вакансии</string>
-    <string name="more_vacancies_third">Еще %1d вакансий</string>
+    <plurals name="more_vacancies">
+        <item quantity="one">Еще %1$d вакансия</item>
+        <item quantity="few">Еще %1$d вакансии</item>
+        <item quantity="many">Еще %1$d вакансий</item>
+        <item quantity="other">Еще %1$d вакансий</item>
+    </plurals>
 
-    <string name="looking_vacancy_first">Сейчас просматривает %1d человек</string>
-    <string name="looking_vacancy_second">Сейчас просматривают %1d человека</string>
-    <string name="looking_vacancy_third">Сейчас просматривают %1d человек</string>
+    <plurals name="looking_vacancy">
+        <item quantity="one">Сейчас просматривает %1$d человек</item>
+        <item quantity="few">Сейчас просматривают %1$d человека</item>
+        <item quantity="many">Сейчас просматривают %1$d человек</item>
+        <item quantity="other">Сейчас просматривают %1$d человек</item>
+    </plurals>
+
     <string name="search_bar_vacancies_hint">Должность по подходящим вакансиям</string>
     <string name="back_action">Back action</string>
-
 
 </resources>
