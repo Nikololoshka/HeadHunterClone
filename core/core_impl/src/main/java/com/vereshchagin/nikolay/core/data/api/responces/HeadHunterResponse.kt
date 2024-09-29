@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.core.data.model
+package com.vereshchagin.nikolay.core.data.api.responces
 
 import com.vereshchagin.nikolay.core_api.domain.model.Recommendation
 import com.vereshchagin.nikolay.core_api.domain.model.Vacancy

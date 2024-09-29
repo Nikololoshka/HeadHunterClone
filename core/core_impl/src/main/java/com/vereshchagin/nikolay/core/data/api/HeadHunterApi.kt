@@ -1,7 +1,6 @@
 package com.vereshchagin.nikolay.core.data.api
 
-import com.vereshchagin.nikolay.core.data.model.HeadHunterResponse
-import retrofit2.Call
+import com.vereshchagin.nikolay.core.data.api.responces.HeadHunterResponse
 import retrofit2.http.GET
 import retrofit2.http.Url
 
