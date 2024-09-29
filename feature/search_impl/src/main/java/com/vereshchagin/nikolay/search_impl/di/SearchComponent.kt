@@ -2,6 +2,7 @@ package com.vereshchagin.nikolay.search_impl.di
 
 import com.vereshchagin.nikolay.search_impl.presentation.home.SearchFragment
 import com.vereshchagin.nikolay.module_injector.AppDependenciesProvider
+import com.vereshchagin.nikolay.search_impl.presentation.vacancies.SearchVacanciesFragment
 import dagger.Component
 
 @Component(
@@ -12,6 +13,7 @@ import dagger.Component
 interface SearchComponent {
 
     fun inject(fragment: SearchFragment)
+    fun inject(fragment: SearchVacanciesFragment)
 
     @Component.Factory
     interface Factory {

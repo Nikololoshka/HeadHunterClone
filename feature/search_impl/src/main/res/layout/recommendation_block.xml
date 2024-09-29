@@ -15,7 +15,7 @@
         android:layout_height="32dp"
         android:layout_marginBottom="16dp"
         android:contentDescription="@string/recommendation_icon_description"
-        tools:src="@drawable/filter" />
+        tools:src="@drawable/action_filter" />
 
     <TextView
         android:id="@+id/content"

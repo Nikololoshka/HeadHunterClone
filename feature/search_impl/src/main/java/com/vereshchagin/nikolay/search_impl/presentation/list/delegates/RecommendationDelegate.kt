@@ -19,9 +19,9 @@ fun recommendationDelegate(
             binding.icon.show()
             binding.icon.setImageResource(
                 when (item.id) {
-                    "near_vacancies" -> R.drawable.near_vacancies
-                    "level_up_resume" -> R.drawable.level_up_resume
-                    "temporary_job" -> R.drawable.temporary_job
+                    "near_vacancies" -> R.drawable.rec_near_vacancies
+                    "level_up_resume" -> R.drawable.rec_level_up_resume
+                    "temporary_job" -> R.drawable.rec_temporary_job
                     else -> 0
                 }
             )
