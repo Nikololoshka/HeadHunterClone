@@ -17,4 +17,6 @@ interface HeadHunterRepository {
     suspend fun vacanciesCount(): Flow<Int>
 
     fun favoriteVacancies(): Flow<List<Vacancy>>
+
+    fun favoriteVacanciesCount(): Flow<Int>
 }

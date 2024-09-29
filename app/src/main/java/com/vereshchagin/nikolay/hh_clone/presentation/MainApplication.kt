@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.hh_clone
+package com.vereshchagin.nikolay.hh_clone.presentation
 
 import android.app.Application
 import com.vereshchagin.nikolay.hh_clone.di.AppComponent

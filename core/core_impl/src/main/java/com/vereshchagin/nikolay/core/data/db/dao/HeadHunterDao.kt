@@ -21,6 +21,9 @@ interface HeadHunterDao {
     @Query("SELECT COUNT(*) FROM vacancy_entities")
     fun vacanciesCount(): Flow<Int>
 
+    @Query("SELECT COUNT(*) FROM vacancy_entities WHERE isFavorite")
+    fun favoriteVacanciesCount(): Flow<Int>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertVacancies(entities: List<VacancyEntity>)
 

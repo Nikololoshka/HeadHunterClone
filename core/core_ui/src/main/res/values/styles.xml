@@ -57,4 +57,8 @@
         <item name="android:textAppearance">@style/TextDefault1</item>
     </style>
 
+    <style name="Badge" parent="@style/Widget.MaterialComponents.Badge">
+        <item name="backgroundColor">@color/special_red</item>
+    </style>
+
 </resources>

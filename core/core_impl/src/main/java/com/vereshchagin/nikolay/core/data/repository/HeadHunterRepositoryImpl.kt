@@ -71,6 +71,10 @@ class HeadHunterRepositoryImpl @Inject constructor(
         }
     }
 
+    override fun favoriteVacanciesCount(): Flow<Int> {
+        return dao.favoriteVacanciesCount()
+    }
+
     override suspend fun vacanciesCount(): Flow<Int> {
         return dao.vacanciesCount()
     }

@@ -1,19 +1,33 @@
-package com.vereshchagin.nikolay.hh_clone
+package com.vereshchagin.nikolay.hh_clone.presentation
 
 import android.os.Bundle
-import android.service.voice.VoiceInteractionSession.ActivityId
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.navigation.findNavController
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.vereshchagin.nikolay.favorite_impl.presentation.FavoriteViewModel
+import com.vereshchagin.nikolay.hh_clone.R
 import com.vereshchagin.nikolay.hh_clone.databinding.ActivityMainBinding
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+
+    @Inject
+    lateinit var viewModelFactory: MainViewModel.MainViewModelFactory
+    private val viewModel by viewModels<MainViewModel> {
+        MainViewModel.provideFactory(viewModelFactory)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +40,12 @@ class MainActivity : AppCompatActivity() {
 
         setupNavigation()
         setupWindowInsets()
+
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.favoriteCount.collectLatest(::updateFavoriteBadge)
+            }
+        }
     }
 
     private fun setupNavigation() {
@@ -42,5 +62,11 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+    }
+
+    private fun updateFavoriteBadge(count: Int) {
+        val badge = binding.bottomNav.getOrCreateBadge(R.id.favorite_nav)
+        badge.isVisible = count > 0
+        badge.number = count
     }
 }
