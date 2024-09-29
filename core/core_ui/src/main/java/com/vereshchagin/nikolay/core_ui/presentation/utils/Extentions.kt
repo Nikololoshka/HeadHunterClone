@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.core_ui.presentation
+package com.vereshchagin.nikolay.core_ui.presentation.utils
 
 import android.view.View
 

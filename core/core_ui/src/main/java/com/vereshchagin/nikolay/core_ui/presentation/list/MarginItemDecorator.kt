@@ -1,4 +1,4 @@
-package com.vereshchagin.nikolay.core_ui.presentation
+package com.vereshchagin.nikolay.core_ui.presentation.list
 
 import android.graphics.Rect
 import android.view.View

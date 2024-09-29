@@ -3,4 +3,12 @@
     <string name="make_favorite_vacancy">Make favorite vacancy</string>
     <string name="company_verification">Company verification</string>
     <string name="respond">Откликнутся</string>
+
+    <plurals name="looking_vacancy">
+        <item quantity="one">Сейчас просматривает %1$d человек</item>
+        <item quantity="few">Сейчас просматривают %1$d человека</item>
+        <item quantity="many">Сейчас просматривают %1$d человек</item>
+        <item quantity="other">Сейчас просматривают %1$d человек</item>
+    </plurals>
+
 </resources>

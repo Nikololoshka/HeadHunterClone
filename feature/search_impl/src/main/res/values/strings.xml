@@ -12,13 +12,6 @@
         <item quantity="other">Еще %1$d вакансий</item>
     </plurals>
 
-    <plurals name="looking_vacancy">
-        <item quantity="one">Сейчас просматривает %1$d человек</item>
-        <item quantity="few">Сейчас просматривают %1$d человека</item>
-        <item quantity="many">Сейчас просматривают %1$d человек</item>
-        <item quantity="other">Сейчас просматривают %1$d человек</item>
-    </plurals>
-
     <plurals name="vacancies_counter">
         <item quantity="one">%1$d вакансия</item>
         <item quantity="few">%1$d вакансии</item>

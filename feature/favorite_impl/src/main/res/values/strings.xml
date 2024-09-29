@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="favorite_title">Избранное</string>
+
+    <plurals name="favorite_counter">
+        <item quantity="one">%1$d вакансия</item>
+        <item quantity="few">%1$d вакансии</item>
+        <item quantity="many">%1$d вакансий</item>
+        <item quantity="other">%1$d вакансий</item>
+    </plurals>
+
+</resources>

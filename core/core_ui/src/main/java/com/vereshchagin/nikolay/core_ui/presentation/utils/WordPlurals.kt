@@ -1,9 +1,8 @@
-package com.vereshchagin.nikolay.core_ui.presentation
+package com.vereshchagin.nikolay.core_ui.presentation.utils
 
 import android.content.Context
 import androidx.annotation.PluralsRes
 import androidx.fragment.app.Fragment
-import androidx.viewbinding.ViewBinding
 import com.hannesdorfmann.adapterdelegates4.dsl.AdapterDelegateViewBindingViewHolder
 
 fun Fragment.getPluralsString(@PluralsRes res: Int, number: Int): String {
