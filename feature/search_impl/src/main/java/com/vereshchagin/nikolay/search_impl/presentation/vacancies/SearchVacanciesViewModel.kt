@@ -9,6 +9,7 @@ import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
@@ -21,8 +22,9 @@ class SearchVacanciesViewModel @AssistedInject constructor(
 
     init {
         viewModelScope.launch {
-            val vacancies = useCase()
-            _state.update { s -> s.copy(vacancies = vacancies) }
+            useCase().collectLatest {  vacancies ->
+                _state.update { s -> s.copy(vacancies = vacancies) }
+            }
         }
     }
 

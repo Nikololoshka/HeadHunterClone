@@ -6,12 +6,17 @@ import com.vereshchagin.nikolay.core_api.domain.model.Vacancy
 import com.vereshchagin.nikolay.core_ui.presentation.list.delegates.vacancyDelegate
 
 class VacanciesListAdapter(
-
+    private val onFavoriteClicked: (id: String) -> Unit
 ): AsyncListDifferDelegationAdapter<Vacancy>(
     VacancyDiffUtil
 ) {
     init {
-        delegatesManager.addDelegate(vacancyDelegate())
+        delegatesManager.addDelegate(vacancyDelegate(::onVacancyClicked))
+    }
+
+    private fun onVacancyClicked(position: Int) {
+        val vacancy = items[position]
+        onFavoriteClicked(vacancy.id)
     }
 
     companion object {

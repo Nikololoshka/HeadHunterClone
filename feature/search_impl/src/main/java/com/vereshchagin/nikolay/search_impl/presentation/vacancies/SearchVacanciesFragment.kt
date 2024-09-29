@@ -57,7 +57,7 @@ class SearchVacanciesFragment: BaseFragment<FragmentSearchVacanciesBinding>(
     }
 
     private fun setupVacanciesList() {
-        vacanciesAdapter = VacanciesListAdapter()
+        vacanciesAdapter = VacanciesListAdapter({})
         binding.vacancies.adapter = vacanciesAdapter
 
         val paddingBottom = resources.getDimensionPixelSize(R_core_ui.dimen.default_screen_margin)

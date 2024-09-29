@@ -20,8 +20,9 @@ class FavoriteViewModel @AssistedInject constructor(
 
     init {
         viewModelScope.launch {
-            val favorites = useCase()
-            _state.update { s -> s.copy(favorites = favorites) }
+            useCase().collect { favorites ->
+                _state.update { s -> s.copy(favorites = favorites) }
+            }
         }
     }
 

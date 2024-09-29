@@ -86,7 +86,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(
     }
 
     private fun setupVacanciesList() {
-        vacancyAdapter = VacanciesListAdapter()
+        vacancyAdapter = VacanciesListAdapter(viewModel::setFavoriteVacancy)
         binding.vacancies.adapter = vacancyAdapter
 
         val paddingBottom = resources.getDimensionPixelSize(R_core_ui.dimen.default_screen_margin)
@@ -94,12 +94,12 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(
     }
 
     private fun onStateUpdated(state: SearchState) {
-        recommendationAdapter.items = state.data.recommendations
-        binding.recommendations.visible(visible = state.data.recommendations.isNotEmpty())
+        recommendationAdapter.items = state.recommendations
+        binding.recommendations.visible(visible = state.recommendations.isNotEmpty())
 
-        vacancyAdapter.items = state.data.vacancies
+        vacancyAdapter.items = state.vacancies
 
-        val vacanciesCount = state.data.moreVacancies
+        val vacanciesCount = state.moreVacancies
         binding.moreVacancies.text = getPluralsString(R.plurals.more_vacancies, vacanciesCount)
     }
 }

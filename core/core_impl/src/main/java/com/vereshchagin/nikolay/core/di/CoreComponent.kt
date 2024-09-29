@@ -1,6 +1,7 @@
 package com.vereshchagin.nikolay.core.di
 
 import android.content.Context
+import com.vereshchagin.nikolay.core.data.di.CoreDatabaseModule
 import com.vereshchagin.nikolay.core.data.di.CoreModule
 import com.vereshchagin.nikolay.core.data.di.CoreNetworkModule
 import com.vereshchagin.nikolay.core_api.di.CoreProvider
@@ -11,6 +12,7 @@ import javax.inject.Singleton
 @Component(
     modules = [
         CoreModule::class,
+        CoreDatabaseModule::class,
         CoreNetworkModule::class,
     ],
 )

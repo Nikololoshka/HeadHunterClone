@@ -5,11 +5,11 @@ import com.vereshchagin.nikolay.core_api.domain.repository.HeadHunterRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class GetSearchVacanciesUseCase @Inject constructor(
+class GetMoreVacanciesCountUseCase @Inject constructor(
     private val repository: HeadHunterRepository
 ) {
 
-    suspend operator fun invoke(): Flow<List<Vacancy>> {
-        return repository.allVacancies()
+    suspend operator fun invoke(): Flow<Int> {
+        return repository.vacanciesCount()
     }
 }
