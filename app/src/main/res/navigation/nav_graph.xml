@@ -6,12 +6,6 @@
     app:startDestination="@id/search_nav">
 
     <fragment
-        android:id="@+id/search_nav"
-        android:name="com.vereshchagin.nikolay.search_impl.presentation.home.SearchFragment"
-        android:label="HomeFragment"
-        tools:layout="@layout/fragment_search" />
-
-    <fragment
         android:id="@+id/profile_nav"
         android:name="com.vereshchagin.nikolay.profile_impl.presentation.ProfileFragment"
         android:label="ProfileFragment"
@@ -29,17 +23,31 @@
         tools:layout="@layout/fragment_message" />
 
     <fragment
-        android:id="@+id/search_vacancies_nav"
-        android:name="com.vereshchagin.nikolay.search_impl.presentation.vacancies.SearchVacanciesFragment"
-        android:label="SearchVacanciesFragment"
-        tools:layout="@layout/fragment_search_vacancies">
-        <deepLink app:uri="android-app://com.vereshchagin.nikolay.hh_clone/search_vacancies_nav" />
-    </fragment>
-
-    <fragment
         android:id="@+id/favorite_nav"
         android:name="com.vereshchagin.nikolay.favorite_impl.presentation.FavoriteFragment"
         android:label="FavoriteFragment"
         tools:layout="@layout/fragment_favorite" />
+
+    <navigation
+        android:id="@+id/search_nav"
+        app:startDestination="@id/search_home">
+
+        <fragment
+            android:id="@+id/search_home"
+            android:name="com.vereshchagin.nikolay.search_impl.presentation.home.SearchFragment"
+            android:label="HomeFragment"
+            tools:layout="@layout/fragment_search" />
+
+        <fragment
+            android:id="@+id/search_vacancies_nav"
+            android:name="com.vereshchagin.nikolay.search_impl.presentation.vacancies.SearchVacanciesFragment"
+            android:label="SearchVacanciesFragment"
+            tools:layout="@layout/fragment_search_vacancies">
+
+            <deepLink app:uri="android-app://com.vereshchagin.nikolay.hh_clone/search_vacancies_nav" />
+
+        </fragment>
+
+    </navigation>
 
 </navigation>
