@@ -3,6 +3,7 @@ package com.vereshchagin.nikolay.core_ui.presentation.list
 import androidx.recyclerview.widget.DiffUtil
 import com.hannesdorfmann.adapterdelegates4.AsyncListDifferDelegationAdapter
 import com.vereshchagin.nikolay.core_api.domain.model.Vacancy
+import com.vereshchagin.nikolay.core_ui.presentation.list.delegates.VacancyPayload
 import com.vereshchagin.nikolay.core_ui.presentation.list.delegates.vacancyDelegate
 
 class VacanciesListAdapter(
@@ -27,6 +28,13 @@ class VacanciesListAdapter(
 
             override fun areContentsTheSame(oldItem: Vacancy, newItem: Vacancy): Boolean {
                 return  oldItem == newItem
+            }
+
+            override fun getChangePayload(oldItem: Vacancy, newItem: Vacancy): Any? {
+                if (oldItem.isFavorite != newItem.isFavorite) {
+                    return VacancyPayload(newItem.isFavorite)
+                }
+                return super.getChangePayload(oldItem, newItem)
             }
         }
     }

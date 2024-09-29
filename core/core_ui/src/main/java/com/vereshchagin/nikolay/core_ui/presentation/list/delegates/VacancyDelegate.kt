@@ -10,6 +10,8 @@ import com.vereshchagin.nikolay.core_ui.presentation.utils.show
 import java.util.Locale
 import com.vereshchagin.nikolay.core_ui.R
 
+data class VacancyPayload(val isFavorite: Boolean)
+
 fun vacancyDelegate(
     onFavoriteClicked: (position: Int) -> Unit
 ) = adapterDelegateViewBinding<Vacancy, Vacancy, VacancyBlockBinding>(
@@ -19,7 +21,19 @@ fun vacancyDelegate(
 ) {
     binding.favorite.setOnClickListener { onFavoriteClicked(bindingAdapterPosition) }
 
-    bind {
+    bind { payloads ->
+        val payload = payloads.lastOrNull()
+        if (payload is VacancyPayload) {
+            binding.favorite.setImageResource(
+                if (item.isFavorite) {
+                    R.drawable.remove_favorite
+                } else {
+                    R.drawable.add_favorite
+                }
+            )
+            return@bind
+        }
+
         with(binding) {
             if (item.lookingNumber > 0) {
                 currentViewers.text = getPluralsString(R.plurals.looking_vacancy, item.lookingNumber)
@@ -54,7 +68,7 @@ fun vacancyDelegate(
     }
 }
 
-fun formatDate(publishDate: String): String? {
+private fun formatDate(publishDate: String): String? {
     val formatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
     val date = formatter.parse(publishDate)
 
