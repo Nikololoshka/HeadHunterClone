@@ -68,8 +68,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/default_screen_margin"
-            android:background="@drawable/default_card_background"
-            android:foreground="?selectableItemBackground"
+            android:background="@drawable/selectable_card_background"
             android:textColor="@color/basic_white"
             app:backgroundTint="@color/special_blue" />
 

@@ -29,7 +29,7 @@
                 style="@style/Base.SearchBar.ActionButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
+                android:background="@drawable/selectable_card_background"
                 android:contentDescription="@string/back_action"
                 app:icon="@drawable/back"
                 app:layout_constraintBottom_toBottomOf="parent"

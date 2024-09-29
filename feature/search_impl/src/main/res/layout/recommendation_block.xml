@@ -3,10 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="136dp"
     android:layout_height="120dp"
-    android:background="@drawable/default_card_background"
-    android:focusable="true"
-    android:foreground="?attr/selectableItemBackground"
+    android:background="@drawable/selectable_card_background"
     android:clickable="true"
+    android:focusable="true"
     android:orientation="vertical"
     android:padding="8dp">
 
