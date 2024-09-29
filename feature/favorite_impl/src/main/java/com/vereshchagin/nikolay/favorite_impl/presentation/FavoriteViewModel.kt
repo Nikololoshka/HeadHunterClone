@@ -3,6 +3,7 @@ package com.vereshchagin.nikolay.favorite_impl.presentation
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
+import com.vereshchagin.nikolay.favorite_impl.domain.interceptor.FavoriteInterceptor
 import com.vereshchagin.nikolay.favorite_impl.domain.usecase.GetFavoriteVacanciesUseCase
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
@@ -12,7 +13,7 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class FavoriteViewModel @AssistedInject constructor(
-    private val useCase: GetFavoriteVacanciesUseCase
+    private val interceptor: FavoriteInterceptor
 ): ViewModel() {
 
     private val _state = MutableStateFlow(FavariteState(emptyList()))
@@ -20,9 +21,15 @@ class FavoriteViewModel @AssistedInject constructor(
 
     init {
         viewModelScope.launch {
-            useCase().collect { favorites ->
+            interceptor.favoriteVacancies().collect { favorites ->
                 _state.update { s -> s.copy(favorites = favorites) }
             }
+        }
+    }
+
+    fun removeFavoriteVacancy(id: String) {
+        viewModelScope.launch {
+            interceptor.setFavoriteVacancy(id)
         }
     }
 

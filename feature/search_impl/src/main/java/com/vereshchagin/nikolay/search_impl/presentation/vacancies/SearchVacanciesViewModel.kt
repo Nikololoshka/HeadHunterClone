@@ -3,6 +3,7 @@ package com.vereshchagin.nikolay.search_impl.presentation.vacancies
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
+import com.vereshchagin.nikolay.search_impl.domain.interceptor.SearchVacanciesInterceptor
 import com.vereshchagin.nikolay.search_impl.domain.usecase.GetSearchVacanciesUseCase
 import com.vereshchagin.nikolay.search_impl.presentation.home.SearchViewModel
 import dagger.assisted.AssistedFactory
@@ -14,7 +15,7 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class SearchVacanciesViewModel @AssistedInject constructor(
-    private val useCase: GetSearchVacanciesUseCase
+    private val interceptor: SearchVacanciesInterceptor
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(SearchVacanciesState(emptyList()))
@@ -22,9 +23,15 @@ class SearchVacanciesViewModel @AssistedInject constructor(
 
     init {
         viewModelScope.launch {
-            useCase().collectLatest {  vacancies ->
+            interceptor.vacancies().collectLatest {  vacancies ->
                 _state.update { s -> s.copy(vacancies = vacancies) }
             }
+        }
+    }
+
+    fun setFavoriteVacancy(id: String) {
+        viewModelScope.launch {
+            interceptor.setFavoriteVacancy(id)
         }
     }
 

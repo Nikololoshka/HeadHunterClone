@@ -30,10 +30,10 @@ interface HeadHunterDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertVacancy(entity: VacancyEntity)
 
-    @Query("SELECT * FROM vacancy_entities")
+    @Query("SELECT * FROM vacancy_entities ORDER BY publishedDate DESC")
     fun getAllVacancies(): Flow<List<VacancyEntity>>
 
-    @Query("SELECT * FROM vacancy_entities LIMIT :count")
+    @Query("SELECT * FROM vacancy_entities ORDER BY publishedDate DESC LIMIT :count")
     fun getRelativeVacancies(count: Int): Flow<List<VacancyEntity>>
 
     @Query("SELECT * FROM vacancy_entities WHERE isFavorite")

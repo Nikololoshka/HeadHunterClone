@@ -54,7 +54,7 @@ class FavoriteFragment : BaseFragment<FragmentFavoriteBinding>(
     }
 
     private fun setupVacanciesList() {
-        favoritesAdapter = VacanciesListAdapter({})
+        favoritesAdapter = VacanciesListAdapter(viewModel::removeFavoriteVacancy)
         binding.favorites.adapter = favoritesAdapter
 
         val paddingBottom = resources.getDimensionPixelSize(com.vereshchagin.nikolay.core_ui.R.dimen.default_screen_margin)

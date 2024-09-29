@@ -11,13 +11,13 @@ import java.util.Locale
 import com.vereshchagin.nikolay.core_ui.R
 
 fun vacancyDelegate(
-    onItemClicked: (position: Int) -> Unit
+    onFavoriteClicked: (position: Int) -> Unit
 ) = adapterDelegateViewBinding<Vacancy, Vacancy, VacancyBlockBinding>(
     viewBinding = { inflater, parent ->
         VacancyBlockBinding.inflate(inflater, parent, false)
     }
 ) {
-    binding.favorite.setOnClickListener { onItemClicked(bindingAdapterPosition) }
+    binding.favorite.setOnClickListener { onFavoriteClicked(bindingAdapterPosition) }
 
     bind {
         with(binding) {

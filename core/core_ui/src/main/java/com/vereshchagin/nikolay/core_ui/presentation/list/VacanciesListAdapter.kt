@@ -11,10 +11,10 @@ class VacanciesListAdapter(
     VacancyDiffUtil
 ) {
     init {
-        delegatesManager.addDelegate(vacancyDelegate(::onVacancyClicked))
+        delegatesManager.addDelegate(vacancyDelegate(::onVacancyFavoriteClicked))
     }
 
-    private fun onVacancyClicked(position: Int) {
+    private fun onVacancyFavoriteClicked(position: Int) {
         val vacancy = items[position]
         onFavoriteClicked(vacancy.id)
     }
