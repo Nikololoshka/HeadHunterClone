@@ -63,12 +63,12 @@ fun vacancyDelegate(
             companyName.text = item.company
             experience.text = item.experience.previewText
 
-            publishDate.text = formatDate(item.publishedDate)
+            publishDate.text = getString(R.string.publish_date, formatDate(item.publishedDate))
         }
     }
 }
 
-private fun formatDate(publishDate: String): String? {
+private fun formatDate(publishDate: String): String {
     val formatter = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
     val date = formatter.parse(publishDate)
 

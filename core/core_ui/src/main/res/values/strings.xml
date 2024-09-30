@@ -3,6 +3,7 @@
     <string name="make_favorite_vacancy">Make favorite vacancy</string>
     <string name="company_verification">Company verification</string>
     <string name="respond">Откликнутся</string>
+    <string name="publish_date">Опубликовано %1$s</string>
 
     <plurals name="looking_vacancy">
         <item quantity="one">Сейчас просматривает %1$d человек</item>
