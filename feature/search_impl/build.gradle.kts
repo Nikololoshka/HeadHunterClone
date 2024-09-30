@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.vereshchagin.nikolay.search_impl"
+    namespace = "com.vereshchagin.nikolay.hh_clone.search_impl"
     compileSdk = 34
 
     defaultConfig {

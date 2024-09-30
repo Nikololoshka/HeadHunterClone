@@ -2,8 +2,8 @@ package com.vereshchagin.nikolay.hh_clone.presentation
 
 import android.app.Application
 import com.vereshchagin.nikolay.hh_clone.di.AppComponent
-import com.vereshchagin.nikolay.module_injector.App
-import com.vereshchagin.nikolay.module_injector.AppDependenciesProvider
+import com.vereshchagin.nikolay.hh_clone.module_injector.App
+import com.vereshchagin.nikolay.hh_clone.module_injector.AppDependenciesProvider
 
 class MainApplication : Application(), App {
 

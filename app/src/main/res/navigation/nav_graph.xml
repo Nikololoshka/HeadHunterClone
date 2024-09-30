@@ -7,24 +7,24 @@
 
     <fragment
         android:id="@+id/profile_nav"
-        android:name="com.vereshchagin.nikolay.profile_impl.presentation.ProfileFragment"
+        android:name="com.vereshchagin.nikolay.hh_clone.profile_impl.presentation.ProfileFragment"
         android:label="ProfileFragment"
         tools:layout="@layout/fragment_profile" />
 
     <fragment
         android:id="@+id/feedback_nav"
-        android:name="com.vereshchagin.nikolay.feedback_impl.presentation.FeedbackFragment"
+        android:name="com.vereshchagin.nikolay.hh_clone.feedback_impl.presentation.FeedbackFragment"
         android:label="FeedbackFragment"
         tools:layout="@layout/fragment_feedback" />
     <fragment
         android:id="@+id/message_nav"
-        android:name="com.vereshchagin.nikolay.message_impl.presentation.MessageFragment"
+        android:name="com.vereshchagin.nikolay.hh_clone.message_impl.presentation.MessageFragment"
         android:label="MessageFragment"
         tools:layout="@layout/fragment_message" />
 
     <fragment
         android:id="@+id/favorite_nav"
-        android:name="com.vereshchagin.nikolay.favorite_impl.presentation.FavoriteFragment"
+        android:name="com.vereshchagin.nikolay.hh_clone.favorite_impl.presentation.FavoriteFragment"
         android:label="FavoriteFragment"
         tools:layout="@layout/fragment_favorite" />
 
@@ -34,13 +34,13 @@
 
         <fragment
             android:id="@+id/search_home"
-            android:name="com.vereshchagin.nikolay.search_impl.presentation.home.SearchFragment"
+            android:name="com.vereshchagin.nikolay.hh_clone.search_impl.presentation.home.SearchFragment"
             android:label="HomeFragment"
             tools:layout="@layout/fragment_search" />
 
         <fragment
             android:id="@+id/search_vacancies_nav"
-            android:name="com.vereshchagin.nikolay.search_impl.presentation.vacancies.SearchVacanciesFragment"
+            android:name="com.vereshchagin.nikolay.hh_clone.search_impl.presentation.vacancies.SearchVacanciesFragment"
             android:label="SearchVacanciesFragment"
             tools:layout="@layout/fragment_search_vacancies">
 

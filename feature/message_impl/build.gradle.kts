@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.vereshchagin.nikolay.message_impl"
+    namespace = "com.vereshchagin.nikolay.hh_clone.message_impl"
     compileSdk = 34
 
     defaultConfig {

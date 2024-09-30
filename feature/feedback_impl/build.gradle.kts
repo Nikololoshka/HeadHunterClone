@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.vereshchagin.nikolay.feedback_impl"
+    namespace = "com.vereshchagin.nikolay.hh_clone.feedback_impl"
     compileSdk = 34
 
     defaultConfig {

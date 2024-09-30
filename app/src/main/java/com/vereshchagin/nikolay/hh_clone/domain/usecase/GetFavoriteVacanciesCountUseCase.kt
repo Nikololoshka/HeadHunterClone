@@ -1,6 +1,6 @@
 package com.vereshchagin.nikolay.hh_clone.domain.usecase
 
-import com.vereshchagin.nikolay.core_api.domain.repository.HeadHunterRepository
+import com.vereshchagin.nikolay.hh_clone.core_api.domain.repository.HeadHunterRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

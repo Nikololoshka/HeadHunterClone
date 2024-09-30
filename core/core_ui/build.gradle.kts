@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.vereshchagin.nikolay.core_ui"
+    namespace = "com.vereshchagin.nikolay.hh_clone.core_ui"
     compileSdk = 34
 
     defaultConfig {

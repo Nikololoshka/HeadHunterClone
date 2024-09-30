@@ -12,7 +12,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
-import com.vereshchagin.nikolay.favorite_impl.presentation.FavoriteViewModel
+import com.vereshchagin.nikolay.hh_clone.favorite_impl.presentation.FavoriteViewModel
 import com.vereshchagin.nikolay.hh_clone.R
 import com.vereshchagin.nikolay.hh_clone.databinding.ActivityMainBinding
 import kotlinx.coroutines.flow.collectLatest

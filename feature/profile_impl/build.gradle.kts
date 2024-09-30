@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.vereshchagin.nikolay.profile_impl"
+    namespace = "com.vereshchagin.nikolay.hh_clone.profile_impl"
     compileSdk = 34
 
     defaultConfig {

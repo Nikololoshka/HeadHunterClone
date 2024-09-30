@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.vereshchagin.nikolay.module_injector"
+    namespace = "com.vereshchagin.nikolay.hh_clone.module_injector"
     compileSdk = 34
 
     defaultConfig {
