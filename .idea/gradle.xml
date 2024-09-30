@@ -20,6 +20,8 @@
             <option value="$PROJECT_DIR$/feature/message_impl" />
             <option value="$PROJECT_DIR$/feature/profile_impl" />
             <option value="$PROJECT_DIR$/feature/search_impl" />
+            <option value="$PROJECT_DIR$/feature/vacancy_detail_api" />
+            <option value="$PROJECT_DIR$/feature/vacancy_detail_impl" />
             <option value="$PROJECT_DIR$/module_injector" />
           </set>
         </option>

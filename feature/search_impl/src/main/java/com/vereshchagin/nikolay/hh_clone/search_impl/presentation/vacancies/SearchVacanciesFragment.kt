@@ -3,10 +3,12 @@ package com.vereshchagin.nikolay.hh_clone.search_impl.presentation.vacancies
 import android.content.Context
 import android.os.Bundle
 import android.view.View
+import androidx.core.net.toUri
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.fragment.findNavController
 import com.vereshchagin.nikolay.hh_clone.core_ui.presentation.fragment.BaseFragment
 import com.vereshchagin.nikolay.hh_clone.core_ui.presentation.list.MarginItemDecorator
@@ -17,6 +19,9 @@ import com.vereshchagin.nikolay.hh_clone.search_impl.R
 import com.vereshchagin.nikolay.hh_clone.search_impl.databinding.FragmentSearchVacanciesBinding
 import com.vereshchagin.nikolay.hh_clone.search_impl.di.SearchComponent
 import com.vereshchagin.nikolay.hh_clone.core_ui.presentation.list.VacanciesListAdapter
+import com.vereshchagin.nikolay.hh_clone.core_ui.presentation.list.VacanciesListListener
+import com.vereshchagin.nikolay.hh_clone.core_ui.presentation.list.delegates.VacancyCardListener
+import com.vereshchagin.nikolay.hh_clone.vacancy_detail_api.VacancyDetailDeepLink
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -24,7 +29,7 @@ import com.vereshchagin.nikolay.hh_clone.core_ui.R as R_core_ui
 
 class SearchVacanciesFragment: BaseFragment<FragmentSearchVacanciesBinding>(
     FragmentSearchVacanciesBinding::inflate
-) {
+), VacanciesListListener {
 
     @Inject
     lateinit var viewModelFactory: SearchVacanciesViewModel.SearchVacanciesViewModelFactory
@@ -57,7 +62,7 @@ class SearchVacanciesFragment: BaseFragment<FragmentSearchVacanciesBinding>(
     }
 
     private fun setupVacanciesList() {
-        vacanciesAdapter = VacanciesListAdapter(viewModel::setFavoriteVacancy)
+        vacanciesAdapter = VacanciesListAdapter(this)
         binding.vacancies.adapter = vacanciesAdapter
 
         val paddingBottom = resources.getDimensionPixelSize(R_core_ui.dimen.default_screen_margin)
@@ -75,5 +80,16 @@ class SearchVacanciesFragment: BaseFragment<FragmentSearchVacanciesBinding>(
         binding.vacanciesCounter.text = getPluralsString(R.plurals.vacancies_counter,vacanciesCount)
 
         vacanciesAdapter.items = state.vacancies
+    }
+
+    override fun onFavoriteClicked(id: String) {
+        viewModel.setFavoriteVacancy(id)
+    }
+
+    override fun onCardClicked(id: String) {
+        val request = NavDeepLinkRequest.Builder
+            .fromUri(VacancyDetailDeepLink.DeepLink.toUri())
+            .build()
+        findNavController().navigate(request)
     }
 }

@@ -49,6 +49,8 @@ dependencies {
     implementation(project(":feature:feedback_impl"))
     implementation(project(":feature:message_impl"))
     implementation(project(":feature:profile_impl"))
+    implementation(project(":feature:vacancy_detail_api"))
+    implementation(project(":feature:vacancy_detail_impl"))
     implementation(project(":module_injector"))
 
     implementation(libs.androidx.core.ktx)

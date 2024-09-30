@@ -3,21 +3,28 @@ package com.vereshchagin.nikolay.hh_clone.core_ui.presentation.list
 import androidx.recyclerview.widget.DiffUtil
 import com.hannesdorfmann.adapterdelegates4.AsyncListDifferDelegationAdapter
 import com.vereshchagin.nikolay.hh_clone.core_api.domain.model.Vacancy
+import com.vereshchagin.nikolay.hh_clone.core_ui.presentation.list.delegates.VacancyCardListener
 import com.vereshchagin.nikolay.hh_clone.core_ui.presentation.list.delegates.VacancyPayload
 import com.vereshchagin.nikolay.hh_clone.core_ui.presentation.list.delegates.vacancyDelegate
 
 class VacanciesListAdapter(
-    private val onFavoriteClicked: (id: String) -> Unit
+    private val listener: VacanciesListListener
 ): AsyncListDifferDelegationAdapter<Vacancy>(
     VacancyDiffUtil
-) {
+), VacancyCardListener {
+
     init {
-        delegatesManager.addDelegate(vacancyDelegate(::onVacancyFavoriteClicked))
+        delegatesManager.addDelegate(vacancyDelegate(this))
     }
 
-    private fun onVacancyFavoriteClicked(position: Int) {
+    override fun onFavoriteClicked(position: Int) {
         val vacancy = items[position]
-        onFavoriteClicked(vacancy.id)
+        listener.onFavoriteClicked(vacancy.id)
+    }
+
+    override fun onCardClicked(position: Int) {
+        val vacancy = items[position]
+        listener.onCardClicked(vacancy.id)
     }
 
     companion object {

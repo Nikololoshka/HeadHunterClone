@@ -23,8 +23,10 @@ import com.vereshchagin.nikolay.hh_clone.search_impl.databinding.FragmentSearchB
 import com.vereshchagin.nikolay.hh_clone.search_impl.di.SearchComponent
 import com.vereshchagin.nikolay.hh_clone.search_impl.presentation.list.RecommendationListAdapter
 import com.vereshchagin.nikolay.hh_clone.core_ui.presentation.list.VacanciesListAdapter
+import com.vereshchagin.nikolay.hh_clone.core_ui.presentation.list.VacanciesListListener
 import com.vereshchagin.nikolay.hh_clone.module_injector.appDependenciesProvider
 import com.vereshchagin.nikolay.hh_clone.module_injector.scopedComponent
+import com.vereshchagin.nikolay.hh_clone.vacancy_detail_api.VacancyDetailDeepLink
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -32,7 +34,7 @@ import com.vereshchagin.nikolay.hh_clone.core_ui.R as R_core_ui
 
 class SearchFragment : BaseFragment<FragmentSearchBinding>(
     FragmentSearchBinding::inflate
-) {
+), VacanciesListListener {
 
     @Inject
     lateinit var viewModelFactory: SearchViewModel.HomeViewModelFactory
@@ -86,7 +88,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(
     }
 
     private fun setupVacanciesList() {
-        vacancyAdapter = VacanciesListAdapter(viewModel::setFavoriteVacancy)
+        vacancyAdapter = VacanciesListAdapter(this)
         binding.vacancies.adapter = vacancyAdapter
 
         val paddingBottom = resources.getDimensionPixelSize(R_core_ui.dimen.default_screen_margin)
@@ -101,5 +103,16 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(
 
         val vacanciesCount = state.moreVacancies
         binding.moreVacancies.text = getPluralsString(R.plurals.more_vacancies, vacanciesCount)
+    }
+
+    override fun onFavoriteClicked(id: String) {
+        viewModel.setFavoriteVacancy(id)
+    }
+
+    override fun onCardClicked(id: String) {
+        val request = NavDeepLinkRequest.Builder
+            .fromUri(VacancyDetailDeepLink.DeepLink.toUri())
+            .build()
+        findNavController().navigate(request)
     }
 }

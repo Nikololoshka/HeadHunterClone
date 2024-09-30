@@ -39,6 +39,7 @@ android {
 dependencies {
     implementation(project(":core:core_api"))
     implementation(project(":core:core_ui"))
+    implementation(project(":feature:vacancy_detail_api"))
     implementation(project(":module_injector"))
 
     implementation(libs.androidx.core.ktx)

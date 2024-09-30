@@ -3,23 +3,22 @@ package com.vereshchagin.nikolay.hh_clone.core_ui.presentation.list.delegates
 import android.icu.text.SimpleDateFormat
 import com.hannesdorfmann.adapterdelegates4.dsl.adapterDelegateViewBinding
 import com.vereshchagin.nikolay.hh_clone.core_api.domain.model.Vacancy
+import com.vereshchagin.nikolay.hh_clone.core_ui.R
 import com.vereshchagin.nikolay.hh_clone.core_ui.databinding.VacancyBlockBinding
 import com.vereshchagin.nikolay.hh_clone.core_ui.presentation.utils.getPluralsString
 import com.vereshchagin.nikolay.hh_clone.core_ui.presentation.utils.gone
 import com.vereshchagin.nikolay.hh_clone.core_ui.presentation.utils.show
 import java.util.Locale
-import com.vereshchagin.nikolay.hh_clone.core_ui.R
-
-data class VacancyPayload(val isFavorite: Boolean)
 
 fun vacancyDelegate(
-    onFavoriteClicked: (position: Int) -> Unit
+    listener: VacancyCardListener
 ) = adapterDelegateViewBinding<Vacancy, Vacancy, VacancyBlockBinding>(
     viewBinding = { inflater, parent ->
         VacancyBlockBinding.inflate(inflater, parent, false)
     }
 ) {
-    binding.favorite.setOnClickListener { onFavoriteClicked(bindingAdapterPosition) }
+    itemView.setOnClickListener { listener.onCardClicked(bindingAdapterPosition) }
+    binding.favorite.setOnClickListener { listener.onFavoriteClicked(bindingAdapterPosition) }
 
     bind { payloads ->
         val payload = payloads.lastOrNull()

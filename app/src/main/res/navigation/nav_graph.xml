@@ -50,4 +50,14 @@
 
     </navigation>
 
+    <fragment
+        android:id="@+id/vacancy_detail_nav"
+        android:name="com.vereshchagin.nikolay.hh_clone.vacancy_detail_impl.presentation.VacancyDetailFragment"
+        android:label="VacancyDetailFragment"
+        tools:layout="@layout/fragment_vacancy_detail">
+
+        <deepLink app:uri="android-app://com.vereshchagin.nikolay.hh_clone/vacancy_detail" />
+
+    </fragment>
+
 </navigation>
